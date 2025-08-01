@@ -1,0 +1,14 @@
+.elements {
+  max-width: 880px;
+  margin: 50px auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.elements__card {
+  max-width: 282px;
+  height: 361px;
+  background-color: #ffffff;
+  border-radius: 10px;
+}

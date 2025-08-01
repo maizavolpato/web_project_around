@@ -1,0 +1,31 @@
+.profile {
+  display: flex;
+  margin: 40px auto 0;
+  max-width: 880px;
+}
+
+.profilo__image {
+  max-width: 120px;
+  max-height: 120px;
+}
+.profile__info {
+  display: flex;
+  flex-direction: column;
+
+  margin-left: 30px;
+}
+.profile__name {
+  font-family: Inter;
+  font-weight: 500;
+  font-size: 42px;
+  line-height: 48px;
+  margin-bottom: 16px;
+}
+
+.profile__detail {
+  font-family: Inter;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 100%;
+  margin: 0;
+}
