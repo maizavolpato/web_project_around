@@ -11,7 +11,6 @@
 .profile__info {
   display: flex;
   flex-direction: column;
-
   margin-left: 30px;
 }
 .profile__name {
@@ -22,7 +21,7 @@
   margin-bottom: 16px;
 }
 
-.profile__detail {
+.profile__job {
   font-family: Inter;
   font-weight: 400;
   font-size: 18px;
@@ -31,11 +30,14 @@
 }
 
 .profile__edit-button {
+  width: 24px;
+  height: 24px;
+  background: transparent url("../images/edit_button.png") center no-repeat;
+  border: 1px solid #fff;
   margin-left: 18px;
   align-self: center;
   cursor: pointer;
 }
-
 .button__add-image {
   width: 150px;
   height: 50px;
