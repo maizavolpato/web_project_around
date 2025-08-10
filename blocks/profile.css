@@ -38,8 +38,12 @@
   align-self: center;
   cursor: pointer;
 }
-.button__add-image {
+.profile__add-image-button {
+  background: transparent url("../images/add_button.png") center no-repeat;
+  border: 1px solid #fff;
   width: 150px;
   height: 50px;
   margin: 13px 0 14px 165px;
+  align-self: center;
+  cursor: pointer;
 }
