@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <meta name="author" content="Maiza Volpato dos Santos" />
+    <meta name="keywords" content="" />
+
+    <title>Around</title>
+    <link rel="stylesheet" href="./pages/index.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="header">
+        <img src="./images/logo.png" alt="Logo Around" class="header__logo" />
+      </header>
+      <section class="profile">
+        <img
+          src="./images/avatar.png"
+          alt="Profile Image"
+          class="profile__image"
+        />
+        <div class="profile__info">
+          <div class="profile__name-button">
+            <h2 class="profile__name">Jacques Cousteau</h2>
+            <button class="profile__edit-button"></button>
+          </div>
+          <h1 class="profile__job">Explorador</h1>
+        </div>
+        <button class="profile__add-image-button"></button>
+      </section>
+      <section class="elements">
+        <div class="elements__card">
+          <img src="./images/photo_1.png" alt="" class="elements__image" />
+          <div class="element__card-block">
+            <div class="element__card-text">Vale de Yosemite</div>
+            <button class="elements__card-button-like"></button>
+          </div>
+        </div>
+        <div class="elements__card">
+          <img src="./images/photo_2.png" alt="" class="elements__image" />
+          <div class="element__card-block">
+            <div class="element__card-text">Lago Louise</div>
+            <button class="elements__card-button-like"></button>
+          </div>
+        </div>
+        <div class="elements__card">
+          <img src="./images/photo_3.png" alt="" class="elements__image" />
+          <div class="element__card-block">
+            <div class="element__card-text">Montanhas Care...</div>
+            <button class="elements__card-button-like"></button>
+          </div>
+        </div>
+        <div class="elements__card">
+          <img src="./images/photo_4.png" alt="" class="elements__image" />
+          <div class="element__card-block">
+            <div class="element__card-text">Latemar</div>
+            <button class="elements__card-button-like"></button>
+          </div>
+        </div>
+        <div class="elements__card">
+          <img src="./images/photo_5.png" alt="" class="elements__image" />
+          <div class="element__card-block">
+            <div class="element__card-text">Parque Nacional da Vanoise</div>
+            <button class="elements__card-button-like"></button>
+          </div>
+        </div>
+        <div class="elements__card">
+          <img src="./images/photo_6.png" alt="" class="elements__image" />
+          <div class="element__card-block">
+            <div class="element__card-text">Lago di Braies</div>
+            <button class="elements__card-button-like"></button>
+          </div>
+        </div>
+      </section>
+      <footer class="footer">&copy; Maiza Volpato dos Santos</footer>
+    </div>
+    <section class="form">
+      <div class="form__profile-edit">
+        <button class="form__button-close" type="button"></button>
+        <h2 class="form__title">Editar perfil</h2>
+        <form class="form__edit">
+          <fieldset class="form__fieldset">
+            <input
+              type="text"
+              class="form__input"
+              id="name"
+              placeholder="Name"
+            />
+            <input
+              type="text"
+              class="form__input"
+              id="detail"
+              placeholder="Detail"
+            />
+            <button class="form__button-submit" type="submit">Salvar</button>
+          </fieldset>
+        </form>
+      </div>
+    </section>
+    <script src="./scripts/index.js"></script>
+  </body>
+</html>
