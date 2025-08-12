@@ -13,14 +13,14 @@
   border-radius: 10px;
 }
 
-.element__card-block {
+.elements__card-block {
   width: 246px;
   display: flex;
   justify-content: space-between;
   margin: 25px 15px 31px 21px;
 }
 
-.element__card-text {
+.elements__card-text {
   font-family: Inter;
   font-weight: 900;
   font-size: 24px;
