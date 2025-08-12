@@ -18,6 +18,7 @@
   background-color: #ffffff;
   box-shadow: 0px 0px 25px 0px #00000026;
   border-radius: 10px;
+  position: relative;
 }
 
 .form__title {
@@ -26,29 +27,6 @@
   font-size: 24px;
   line-height: 100%;
   margin: 34px 0 54px 36px;
-}
-
-.form__button-close {
-  width: 40px;
-  height: 40px;
-  background: transparent url("../images/close_button.png") center no-repeat;
-  border: none;
-  position: absolute;
-  top: 80px;
-  right: 470px;
-  padding: 0;
-  margin: 0;
-  cursor: pointer;
-}
-
-.form__button-close:hover,
-.form__button-submit:hover {
-  opacity: 0.8;
-}
-
-.form__fieldset {
-  padding: 0;
-  border: none;
 }
 
 .form__input {
@@ -95,6 +73,51 @@
   cursor: pointer;
 }
 
+.form__button-close {
+  width: 40px;
+  height: 40px;
+  background: transparent url("../images/close_button.png") center no-repeat;
+  border: none;
+  position: absolute;
+  top: -33px;
+  right: -36px;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.form__button-close:hover,
+.form__button-submit:hover {
+  opacity: 0.8;
+}
+
+.form__fieldset {
+  padding: 0;
+  border: none;
+}
+
 .form_open {
   display: flex;
+}
+
+@media screen and (max-width: 544px) {
+  .form__profile-edit {
+    width: 282px;
+    height: 322px;
+  }
+
+  .form__title {
+    font-size: 18px;
+  }
+
+  .form__input {
+    width: 238px;
+  }
+
+  .form__button-submit {
+    width: 238px;
+    height: 50px;
+    font-size: 14px;
+    margin: 46px 22px 25px 22px;
+  }
 }

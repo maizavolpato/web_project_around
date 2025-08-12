@@ -4,15 +4,21 @@
   max-width: 880px;
 }
 
-.profilo__image {
-  max-width: 120px;
-  max-height: 120px;
+.profile__image {
+  width: 120px;
+  height: 120px;
 }
 .profile__info {
+  max-width: 415px;
+  margin-left: 30px;
   display: flex;
   flex-direction: column;
-  margin-left: 30px;
 }
+
+.profile__name-button {
+  display: flex;
+}
+
 .profile__name {
   font-family: Inter;
   font-weight: 500;
@@ -32,6 +38,7 @@
 .profile__edit-button {
   width: 24px;
   height: 24px;
+  margin: 18px 18px 0 18px;
   background: transparent url("../images/edit_button.png") center no-repeat;
   border: 1px solid #fff;
   margin-left: 18px;
@@ -46,4 +53,36 @@
   margin: 13px 0 14px 165px;
   align-self: center;
   cursor: pointer;
+}
+
+.profile__edit-button:hover,
+.profile__add-image-button:hover {
+  opacity: 0.6;
+}
+
+@media screen and (max-width: 544px) {
+  .profile {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile__name {
+    font-size: 22px;
+  }
+
+  .profile__job {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .profile__edit-button {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    margin-left: 10px;
+  }
+
+  .profile__add-image-button {
+    margin: 36px auto 36px;
+  }
 }

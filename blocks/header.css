@@ -4,3 +4,10 @@
   max-width: 880px;
   height: 74px;
 }
+
+@media screen and (max-width: 544px) {
+  .header {
+    width: 320px;
+    height: 56px;
+  }
+}
