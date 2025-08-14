@@ -1,7 +1,3 @@
-//Abrir o formulario para editar o perfil
-//Ao clicar abrir a janela
-//Fazer o formulario aparecer
-
 const editProfileButton = document.querySelector(".profile__edit-button");
 const openFormProfile = document.querySelector(".form");
 const closeFormProfile = document.querySelector(".form__button-close");
@@ -26,10 +22,12 @@ function handleProfileFormSubmit(evt) {
 
   nameProfile.textContent = inputName.value;
   jobProfile.textContent = inputJob.value;
-  if (inputName.value.trim === "" || inputJob.value.trim == "") {
+
+  if (inputName.value.trim() === "" || inputJob.value.trim() == "") {
     alert("Input invalid!");
     return;
   }
+
   closeProfile();
 }
 
