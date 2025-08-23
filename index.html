@@ -31,7 +31,7 @@
         <button class="profile__add-image-button"></button>
       </section>
       <section class="elements">
-        <div class="elements__card">
+        <!-- <div class="elements__card">
           <img
             src="./images/photo_1.png"
             alt="Paisagem de um lago e arvores"
@@ -96,35 +96,77 @@
             <div class="elements__card-text">Lago di Braies</div>
             <button class="elements__card-button-like"></button>
           </div>
-        </div>
+        </div>-->
       </section>
       <footer class="footer">&copy; Maiza Volpato dos Santos</footer>
     </div>
-    <section class="form">
-      <div class="form__profile-edit">
-        <button class="form__button-close" type="button"></button>
-        <h2 class="form__title">Editar perfil</h2>
-        <form class="form__edit">
-          <fieldset class="form__fieldset">
+    <section class="form-profile">
+      <div class="form-profile__container">
+        <button class="form-profile__button-close" type="button"></button>
+        <h2 class="form-profile__title">Editar perfil</h2>
+        <form class="form-profile__edit">
+          <fieldset class="form-profile__fieldset">
             <input
               type="text"
-              class="form__input"
+              class="form-profile__input"
               id="name"
               placeholder="Name"
               required
             />
             <input
               type="text"
-              class="form__input"
+              class="form-profile__input"
               id="detail"
               placeholder="Detail"
               required
             />
-            <button class="form__button-submit" type="submit">Salvar</button>
+            <button class="form-profile__button-submit" type="submit">
+              Salvar
+            </button>
           </fieldset>
         </form>
       </div>
     </section>
+
+    <section class="form-elements">
+      <div class="form-elements__container">
+        <button class="form-elements__button-close" type="button"></button>
+        <h2 class="form-elements__title">Novo local</h2>
+        <form class="form-elements__edit">
+          <fieldset class="form-elements__fieldset">
+            <input
+              type="text"
+              class="form-elements__input"
+              id="title"
+              placeholder="Título"
+              required
+            />
+            <input
+              type="text"
+              class="form-elements__input"
+              id="image"
+              placeholder="Link de Imagem"
+              required
+            />
+            <button class="form-elements__button-submit" type="submit">
+              Salvar
+            </button>
+          </fieldset>
+        </form>
+      </div>
+    </section>
+    <template id="elements-template">
+      <div class="element">
+        <div class="element__card">
+          <img src="" alt="" class="element__image" />
+          <div class="element__card-block">
+            <div class="element__card-text">${inputElements.value}</div>
+
+            <button class="element__card-button-like"></button>
+          </div>
+        </div>
+      </div>
+    </template>
     <script src="./scripts/index.js"></script>
   </body>
 </html>

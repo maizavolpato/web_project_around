@@ -1,0 +1,46 @@
+.element__card {
+  max-width: 282px;
+  height: 361px;
+  background-color: #ffffff;
+  border-radius: 10px;
+}
+
+.element__image {
+  width: 282px;
+  height: 282px;
+}
+
+.element__card-block {
+  width: 246px;
+  display: flex;
+  justify-content: space-between;
+  margin: 25px 15px 31px 21px;
+}
+
+.element__card-text {
+  font-family: Inter;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 100%;
+  color: #000000;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 220px;
+}
+
+.element__card-button-like {
+  background: transparent url("../images/like_button.png") center no-repeat;
+  width: 21px;
+  height: 19px;
+  border: none;
+  background-size: 21px 19px;
+}
+
+@media screen and (max-width: 544px) {
+  .element {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}

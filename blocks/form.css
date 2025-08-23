@@ -1,4 +1,5 @@
-.form {
+.form-profile,
+.form-elements {
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
@@ -12,7 +13,8 @@
   align-items: center;
 }
 
-.form__profile-edit {
+.form-profile__container,
+.form-elements__container {
   max-width: 430px;
   height: 330px;
   background-color: #ffffff;
@@ -21,7 +23,8 @@
   position: relative;
 }
 
-.form__title {
+.form-profile__title,
+.form-elements__title {
   font-family: Inter;
   font-weight: 900;
   font-size: 24px;
@@ -29,7 +32,8 @@
   margin: 34px 0 54px 36px;
 }
 
-.form__input {
+.form-profile__input,
+.form-elements__input {
   max-width: 358px;
   width: 100%;
   font-family: Inter;
@@ -42,14 +46,16 @@
   border-bottom: 1px solid rgb(0, 0, 0, 0.2);
 }
 
-#name {
+#name,
+#title {
   margin: 0 29px 36px;
 }
 
-#detail {
+#detail,
+#image {
   margin: 0 29px 0;
 }
-.form__input::placeholder {
+.form-profile__input::placeholder {
   font-family: Inter;
   font-weight: 400;
   font-size: 14px;
@@ -57,7 +63,8 @@
   color: #000000;
 }
 
-.form__button-submit {
+.form-profile__button-submit,
+.form-elements__button-submit {
   width: 358px;
   height: 50px;
   border: none;
@@ -73,7 +80,8 @@
   cursor: pointer;
 }
 
-.form__button-close {
+.form-profile__button-close,
+.form-elements__button-close {
   width: 40px;
   height: 40px;
   background: transparent url("../images/close_button.png") center no-repeat;
@@ -86,14 +94,22 @@
   cursor: pointer;
 }
 
-.form__button-close:hover,
-.form__button-submit:hover {
+.form-profile__button-close:hover,
+.form-profile__button-submit:hover {
   opacity: 0.8;
 }
 
-.form__fieldset {
+.form-profile__fieldset,
+.form-elements__fieldset {
   padding: 0;
   border: none;
+}
+
+.form-elements__input::placeholder {
+  font-family: Inter;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 100%;
 }
 
 .form_open {
@@ -101,12 +117,12 @@
 }
 
 @media screen and (max-width: 544px) {
-  .form__profile-edit {
+  .form-profile__edit {
     width: 282px;
     height: 322px;
   }
 
-  .form__title {
+  .form-profile__title {
     font-size: 18px;
   }
 
@@ -114,7 +130,7 @@
     width: 238px;
   }
 
-  .form__button-submit {
+  .form-profile__button-submit {
     width: 238px;
     height: 50px;
     font-size: 14px;
