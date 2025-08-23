@@ -1,3 +1,7 @@
+.element {
+  position: relative;
+}
+
 .element__card {
   max-width: 282px;
   height: 361px;
@@ -35,6 +39,22 @@
   height: 19px;
   border: none;
   background-size: 21px 19px;
+}
+
+.element__remove-button {
+  background: transparent url(../images/delete_button.png) center no-repeat;
+  background-size: 18px 19px;
+  width: 18px;
+  height: 19px;
+  border: none;
+  position: absolute;
+  top: 18px;
+  right: 15px;
+  cursor: pointer;
+}
+
+.element__remove-button:hover {
+  opacity: 0.6;
 }
 
 @media screen and (max-width: 544px) {

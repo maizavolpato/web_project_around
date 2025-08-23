@@ -106,6 +106,10 @@ function renderElements(element) {
   const title = elementsItem.querySelector(".element__card-text");
   title.textContent = element.title;
 
+  const removeElement = elementsItem.querySelector(".element__remove-button");
+  removeElement.addEventListener("click", () => {
+    elementsItem.remove();
+  });
   elementsContainer.prepend(elementsItem);
 }
 
