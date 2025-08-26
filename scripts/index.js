@@ -16,29 +16,33 @@ const inputImage = document.querySelector("#image");
 const ElementsFormSubmit = document.querySelector(".form-elements__edit");
 const elementsTemplate = document.querySelector("#elements-template").content;
 const elementsContainer = document.querySelector(".elements");
+const imagePopup = document.querySelector(".image-popup");
+const imagePopupClose = document.querySelector(".image-popup__button-close");
+const imagePopupImage = document.querySelector(".image-popup__image");
+const imagePopupTitle = document.querySelector(".image-popup__title");
 const initialElements = [
   {
-    imageUrl: "./images/photo_1.png",
+    imageUrl: "./images/photo_1.jpg",
     title: "Vale de Yosemite",
   },
   {
-    imageUrl: "./images/photo_2.png",
+    imageUrl: "./images/photo_2.jpg",
     title: "Lago Louise",
   },
   {
-    imageUrl: "./images/photo_3.png",
+    imageUrl: "./images/photo_3.jpg",
     title: "Montanhas Care",
   },
   {
-    imageUrl: "./images/photo_4.png",
+    imageUrl: "./images/photo_4.jpg",
     title: "Latemar",
   },
   {
-    imageUrl: "./images/photo_5.png",
+    imageUrl: "./images/photo_5.jpg",
     title: "Parque Nacional da Vanoise",
   },
   {
-    imageUrl: "./images/photo_6.png",
+    imageUrl: "./images/photo_6.jpg",
     title: "Lago di Braies",
   },
 ];
@@ -110,6 +114,18 @@ function renderElements(element) {
   removeElement.addEventListener("click", () => {
     elementsItem.remove();
   });
+
+  image.addEventListener("click", () => {
+    openImagePopup(element.imageUrl, element.title);
+  });
+
+  const elementLikeButton = elementsItem.querySelector(
+    ".element__card-button-like"
+  );
+  elementLikeButton.addEventListener("click", function (evt) {
+    evt.target.classList.toggle("element__card-button-like-active");
+  });
+
   elementsContainer.prepend(elementsItem);
 }
 
@@ -120,3 +136,28 @@ initialElements.forEach((element) => {
 editElementsButton.addEventListener("click", openElements);
 closeFormElements.addEventListener("click", closeElements);
 ElementsFormSubmit.addEventListener("submit", handleElementsFormSubmit);
+
+function openImagePopup(imageUrl, title) {
+  imagePopupImage.src = imageUrl;
+  imagePopupImage.alt = title;
+  imagePopupTitle.textContent = title;
+  imagePopup.classList.add("popup-open");
+  imagePopupImage.classList.add("image-popup__image");
+}
+
+function closeImagePopup() {
+  imagePopup.classList.remove("popup-open");
+  imagePopupImage.src = "";
+  imagePopupTitle.textContent = "";
+}
+
+imagePopup.addEventListener("click", checkElements);
+
+function checkElements(evt) {
+  if (
+    evt.target.classList.contains("image-popup") ||
+    evt.target.classList.contains("image-popup__button-close")
+  ) {
+    closeImagePopup();
+  }
+}
