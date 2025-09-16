@@ -44,17 +44,10 @@
   padding: 0 0 13px 0;
   border: none;
   border-bottom: 1px solid rgb(0, 0, 0, 0.2);
+  margin: 0 36px 29px;
+  position: relative;
 }
 
-#name,
-#title {
-  margin: 0 29px 36px;
-}
-
-#detail,
-#image {
-  margin: 0 29px 0;
-}
 .form-profile__input::placeholder {
   font-family: Inter;
   font-weight: 400;
@@ -69,7 +62,7 @@
   height: 50px;
   border: none;
   border-radius: 2px;
-  margin: 48px 36px 36px;
+  margin: 19px 36px 36px;
   background: #000000;
   font-family: Inter;
   font-weight: 400;
@@ -78,6 +71,7 @@
   color: #ffffff;
   text-align: center;
   cursor: pointer;
+  position: relative;
 }
 
 .form-profile__button-close,
@@ -95,7 +89,8 @@
 }
 
 .form-profile__button-close:hover,
-.form-profile__button-submit:hover {
+.form-elements__button-close:hover,
+.popup__button:hover {
   opacity: 0.8;
 }
 
@@ -116,6 +111,54 @@
   display: flex;
 }
 
+.popup__input_type_error {
+  border-bottom: 1px solid #ff0000;
+}
+
+.form__input-error-message {
+  display: none;
+}
+
+.popup__error_visible {
+  display: block;
+  width: 358px;
+  color: #ff0000;
+  font-family: Inter;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 100%;
+}
+#name-error {
+  position: absolute;
+  top: 145px;
+  right: 34px;
+}
+
+#detail-error {
+  position: absolute;
+  bottom: 100px;
+  right: 34px;
+}
+
+#title-error {
+  position: absolute;
+  top: 146px;
+  right: 34px;
+}
+
+#image-error {
+  position: absolute;
+  bottom: 110px;
+  right: 34px;
+}
+
+.popup__button_disabled {
+  background-color: #ffffff;
+  color: rgb(199, 199, 199);
+  border: solid 1px rgb(199, 199, 199);
+  cursor: auto;
+}
+
 @media screen and (max-width: 544px) {
   .form-profile__edit {
     width: 282px;
@@ -126,14 +169,15 @@
     font-size: 18px;
   }
 
-  .form__input {
+  .form-profile__input {
     width: 238px;
+    margin: 0 22px 30px;
   }
 
   .form-profile__button-submit {
     width: 238px;
     height: 50px;
     font-size: 14px;
-    margin: 46px 22px 25px 22px;
+    margin: 17px 22px 25px 22px;
   }
 }

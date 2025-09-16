@@ -37,23 +37,37 @@
       <div class="form-profile__container">
         <button class="form-profile__button-close" type="button"></button>
         <h2 class="form-profile__title">Editar perfil</h2>
-        <form class="form-profile__edit">
+        <form class="popup__form form-profile__edit" novalidate>
           <fieldset class="form-profile__fieldset">
             <input
               type="text"
-              class="form-profile__input"
+              class="popup__input form-profile__input"
               id="name"
+              name="name"
               placeholder="Name"
               required
+              minlength="2"
+              maxlength="40"
             />
+            <span id="name-error" class="form__input-error-message">Error</span>
+
             <input
               type="text"
-              class="form-profile__input"
+              class="popup__input form-profile__input"
               id="detail"
+              name="detail"
               placeholder="Detail"
               required
+              minlength="2"
+              maxlength="40"
             />
-            <button class="form-profile__button-submit" type="submit">
+            <span id="detail-error" class="form__input-error-message"
+              >Error</span
+            >
+            <button
+              class="popup__button form-profile__button-submit"
+              type="submit"
+            >
               Salvar
             </button>
           </fieldset>
@@ -65,23 +79,36 @@
       <div class="form-elements__container">
         <button class="form-elements__button-close" type="button"></button>
         <h2 class="form-elements__title">Novo local</h2>
-        <form class="form-elements__edit">
+        <form class="popup__form form-elements__edit" novalidate>
           <fieldset class="form-elements__fieldset">
             <input
               type="text"
-              class="form-elements__input"
+              class="popup__input form-elements__input"
               id="title"
+              name="title"
               placeholder="Título"
+              minlength="2"
+              maxlength="30"
               required
             />
+            <span id="title-error" class="form__input-error-message"
+              >Error</span
+            >
             <input
-              type="text"
-              class="form-elements__input"
+              type="url"
+              class="popup__input form-elements__input"
               id="image"
+              name="image"
               placeholder="Link de Imagem"
               required
             />
-            <button class="form-elements__button-submit" type="submit">
+            <span id="image-error" class="form__input-error-message"
+              >Error</span
+            >
+            <button
+              class="popup__button form-elements__button-submit"
+              type="submit"
+            >
               Salvar
             </button>
           </fieldset>
@@ -107,6 +134,7 @@
         </div>
       </div>
     </template>
-    <script src="./scripts/index.js"></script>
+    <script src="./scripts/index.js" type="module"></script>
+    <script src="./scripts/validate.js" type="module"></script>
   </body>
 </html>

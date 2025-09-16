@@ -1,3 +1,5 @@
+import { resetValidation } from "./validate.js";
+
 const editProfileButton = document.querySelector(".profile__edit-button");
 const openFormProfile = document.querySelector(".form-profile");
 const closeFormProfile = document.querySelector(".form-profile__button-close");
@@ -55,6 +57,14 @@ function openProfile() {
 
 function closeProfile() {
   openFormProfile.classList.remove("form_open");
+  resetValidation({
+    formSelector: ".popup__form",
+    inputSelector: ".popup__input",
+    submitButtonSelector: ".popup__button",
+    inactiveButtonClass: "popup__button_disabled",
+    inputErrorClass: "popup__input_type_error",
+    errorClass: "popup__error_visible",
+  });
 }
 
 function handleProfileFormSubmit(evt) {
@@ -71,8 +81,17 @@ function handleProfileFormSubmit(evt) {
   closeProfile();
 }
 
+function checkProfile(evt) {
+  if (
+    evt.target.classList.contains("form-profile") ||
+    evt.target.classList.contains("form-profile__button-close")
+  ) {
+    closeProfile();
+  }
+}
 editProfileButton.addEventListener("click", openProfile);
-closeFormProfile.addEventListener("click", closeProfile);
+openFormProfile.addEventListener("click", checkProfile);
+
 profileFormSubmit.addEventListener("submit", handleProfileFormSubmit);
 
 function openElements() {
@@ -81,6 +100,23 @@ function openElements() {
 
 function closeElements() {
   openFormElements.classList.remove("form_open");
+  resetValidation({
+    formSelector: ".popup__form",
+    inputSelector: ".popup__input",
+    submitButtonSelector: ".popup__button",
+    inactiveButtonClass: "popup__button_disabled",
+    inputErrorClass: "popup__input_type_error",
+    errorClass: "popup__error_visible",
+  });
+}
+
+function checkElements(evt) {
+  if (
+    evt.target.classList.contains("form-elements") ||
+    evt.target.classList.contains("form-elements__button-close")
+  ) {
+    closeElements();
+  }
 }
 
 function handleElementsFormSubmit(evt) {
@@ -134,7 +170,7 @@ initialElements.forEach((element) => {
 });
 
 editElementsButton.addEventListener("click", openElements);
-closeFormElements.addEventListener("click", closeElements);
+openFormElements.addEventListener("click", checkElements);
 ElementsFormSubmit.addEventListener("submit", handleElementsFormSubmit);
 
 function openImagePopup(imageUrl, title) {
@@ -151,9 +187,9 @@ function closeImagePopup() {
   imagePopupTitle.textContent = "";
 }
 
-imagePopup.addEventListener("click", checkElements);
+imagePopup.addEventListener("click", checkElementsImage);
 
-function checkElements(evt) {
+function checkElementsImage(evt) {
   if (
     evt.target.classList.contains("image-popup") ||
     evt.target.classList.contains("image-popup__button-close")
@@ -161,3 +197,11 @@ function checkElements(evt) {
     closeImagePopup();
   }
 }
+
+document.addEventListener("keydown", (evt) => {
+  if (evt.key === "Escape") {
+    closeElements();
+    closeProfile();
+    closeImagePopup();
+  }
+});
