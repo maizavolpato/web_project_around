@@ -152,17 +152,6 @@ function closeImagePopup() {
   imagePopupTitle.textContent = "";
 }
 
-editElementsButton.addEventListener("click", openElements);
-openFormElements.addEventListener("click", checkElements);
-ElementsFormSubmit.addEventListener("submit", handleElementsFormSubmit);
-
-editProfileButton.addEventListener("click", openProfile);
-openFormProfile.addEventListener("click", checkProfile);
-
-profileFormSubmit.addEventListener("submit", handleProfileFormSubmit);
-
-imagePopup.addEventListener("click", checkElementsImage);
-
 function checkElementsImage(evt) {
   if (
     evt.target.classList.contains("image-popup") ||
@@ -171,6 +160,17 @@ function checkElementsImage(evt) {
     closeImagePopup();
   }
 }
+
+editProfileButton.addEventListener("click", openProfile);
+openFormProfile.addEventListener("click", checkProfile);
+
+editElementsButton.addEventListener("click", openElements);
+openFormElements.addEventListener("click", checkElements);
+ElementsFormSubmit.addEventListener("submit", handleElementsFormSubmit);
+
+profileFormSubmit.addEventListener("submit", handleProfileFormSubmit);
+
+imagePopup.addEventListener("click", checkElementsImage);
 
 document.addEventListener("keydown", (evt) => {
   if (evt.key === "Escape") {
