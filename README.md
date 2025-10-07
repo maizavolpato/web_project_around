@@ -1,13 +1,23 @@
 # Tripleten web_project_around
 
-First part
+Sprint 7 - Basic JavaScript and working with DOM
 
-In this project the website should looks like a social media where the users can add their profile photo, name, job, some pictures that they like and a brief description about it.
-In this first part of the project, I only work in the designer of the website and a modal that asks to the user thir name and job that will update after "submit".
-It was asked to: use the "camel case" to nominated the variables; create functions that should open, close and submit a formulary with the addEventListener(); the "if conditional" in the case the user did not enter any information.
-It was a bit chalange, but I was abble to understand now how Java Script works.
+In this project, the website was designed to resemble a social media platform where users can add their profile photo, name, job title, some pictures they like, and a brief
+In this first part of the project, I focused on the website's design and created a modal that asks the user for their name and job title, which are updated on the page after clicking “Submit.”
+The requirements included: using camelCase for vari open , close , and submit the form using addE , and if condit to handle case
+It was a bit challenging at first, but through this project, I was able to better understand how JavaScri works.
 
-Second part
+Sprint 8 - JavaScript Programming Logic and Methods
 
-In the second part the goals was to crated a validation to the form. The "Profile fom" had some rules that should be follow in the input, such as the minimun and maximun number of letters. The "Elements fom" (the form responsible to add more pictures) should have the standards validations from HTML, but in JavaScrit. Another thing, bouth should have the submit button diable when the form are just opened and when the input have some "error message".
+In this part, I implemented a feature that allows users to create a new custom card, allowing them to add an image and descriptive text. Users can also like each card if they wish.
+It was both a rewarding and challenging part for me, because the majority parte was about functions and helped me better understand how to handle forms, especially in JavaScript.
+
+Sprint 9 - Objects and Event Handling in JavaScript
+
+In this part the goals was to crated a validation to the form. The "Profile form" had some rules that should be follow in the input, such as the minimun and maximun number of letters. The "Elements form" (the form responsible to add more pictures) should have the standards validations from HTML, but in JavaScrit. Another thing, bouth should have the submit button diable when the form are just opened and when the input have some "error message".
 Some aditional in this project was a little bit less trick than the first one, but was good to practice and remenber how to do it, as to close bouth form, when the user click outside the form or when he press "escape" in his keyboard.
+
+Sprint 10 - Introduction to Object-Oriented Programming
+
+This part of the project focused on code refactoring, meaning it was necessary to rewrite some parts of the code, specifically the element and validation sections.
+The base to achieve this was Object-Oriented Programming (OOP), part studied in this sprint, so two new classes were created: one Card (form elements) and two FormValidator (form validation). After creating them, it was necessary just to use export and import techniques.

@@ -86,7 +86,6 @@ export class FormValidator {
         this._toggleButtonState();
       });
     });
-    console.log(this._inputList);
   }
 
   resetValidation() {
@@ -97,7 +96,6 @@ export class FormValidator {
     this._inputList.forEach((input) => {
       this._hideError(input);
     });
-    console.log(this._inputList);
   }
 
   enableValidation() {

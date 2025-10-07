@@ -1,6 +1,5 @@
-import { resetValidation } from "./validate.js";
-import { Card } from "./card.js";
-import { FormValidator } from "./Formvalidator.js";
+import { Card } from "./Card.js";
+import { FormValidator } from "./FormValidator.js";
 import { formValidation } from "./utils.js";
 
 const profileForm = document.querySelector(".popup__form.form-profile__edit");
@@ -114,29 +113,30 @@ function handleElementsFormSubmit(evt) {
     title: inputTitle.value,
   };
 
-  renderElements(newElements);
+  renderElement(newElements);
 
   inputTitle.textContent = inputTitle.value;
 
   closeElements();
 }
 
-function renderElements(element) {
+function renderElement(element) {
   const card = new Card({
     imageUrl: element.imageUrl,
     title: element.title,
   });
   const cardElement = card.generateCard();
 
-  //image.addEventListener("click", () => {
-  //openImagePopup(element.imageUrl, element.title);
-  //});
+  const image = cardElement.querySelector(".element__image");
+  image.addEventListener("click", () => {
+    openImagePopup(element.imageUrl, element.title);
+  });
 
   elementsContainer.prepend(cardElement);
 }
 
 initialElements.forEach((element) => {
-  renderElements(element);
+  renderElement(element);
 });
 
 function openImagePopup(imageUrl, title) {
