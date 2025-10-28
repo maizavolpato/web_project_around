@@ -1,5 +1,4 @@
-.form-profile,
-.form-elements {
+.popup {
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
@@ -13,8 +12,7 @@
   align-items: center;
 }
 
-.form-profile__container,
-.form-elements__container {
+.popup__container {
   max-width: 430px;
   height: 330px;
   background-color: #ffffff;
@@ -23,8 +21,7 @@
   position: relative;
 }
 
-.form-profile__title,
-.form-elements__title {
+.popup__title {
   font-family: Inter;
   font-weight: 900;
   font-size: 24px;
@@ -32,8 +29,8 @@
   margin: 34px 0 54px 36px;
 }
 
-.form-profile__input,
-.form-elements__input {
+.popup__profile-input,
+.popup__elements-input {
   max-width: 358px;
   width: 100%;
   font-family: Inter;
@@ -48,7 +45,7 @@
   position: relative;
 }
 
-.form-profile__input::placeholder {
+.popup__profile-input::placeholder {
   font-family: Inter;
   font-weight: 400;
   font-size: 14px;
@@ -56,8 +53,7 @@
   color: #000000;
 }
 
-.form-profile__button-submit,
-.form-elements__button-submit {
+.popup__button-submit {
   width: 358px;
   height: 50px;
   border: none;
@@ -74,8 +70,7 @@
   position: relative;
 }
 
-.form-profile__button-close,
-.form-elements__button-close {
+.popup__button-close {
   width: 40px;
   height: 40px;
   background: transparent url("../images/close_button.png") center no-repeat;
@@ -88,26 +83,24 @@
   cursor: pointer;
 }
 
-.form-profile__button-close:hover,
-.form-elements__button-close:hover,
+.popup__button-close:hover,
 .popup__button:hover {
   opacity: 0.8;
 }
 
-.form-profile__fieldset,
-.form-elements__fieldset {
+.popup__fieldset {
   padding: 0;
   border: none;
 }
 
-.form-elements__input::placeholder {
+.form-popup__elements-input::placeholder {
   font-family: Inter;
   font-weight: 400;
   font-size: 14px;
   line-height: 100%;
 }
 
-.form_open {
+.popup_open {
   display: flex;
 }
 
@@ -115,7 +108,7 @@
   border-bottom: 1px solid #ff0000;
 }
 
-.form__input-error-message {
+.popup__input-error-message {
   display: none;
 }
 
@@ -159,22 +152,62 @@
   cursor: auto;
 }
 
+.popup__image-container {
+  position: relative;
+  max-width: 75vw;
+  max-height: 75vh;
+  display: flex;
+}
+
+.popup__image {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.popup__image-button-close {
+  width: 40px;
+  height: 40px;
+  background: transparent url("../images/close_button.png") center no-repeat;
+  border: none;
+  position: absolute;
+  top: -36px;
+  right: -36px;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.popup__image-button-close:hover {
+  opacity: 0.8;
+}
+
+.popup__image-title {
+  font-family: Inter;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 100%;
+  color: #ffffff;
+  position: absolute;
+  bottom: -20px;
+  left: 1px;
+}
+
 @media screen and (max-width: 544px) {
-  .form-profile__edit {
+  .popup__profile-edit {
     width: 282px;
     height: 322px;
   }
 
-  .form-profile__title {
+  .popup__title {
     font-size: 18px;
   }
 
-  .form-profile__input {
+  .popup__profile-input {
     width: 238px;
     margin: 0 22px 30px;
   }
 
-  .form-profile__button-submit {
+  .popup__button-submit {
     width: 238px;
     height: 50px;
     font-size: 14px;

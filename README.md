@@ -21,3 +21,11 @@ Sprint 10 - Introduction to Object-Oriented Programming
 
 This part of the project focused on code refactoring, meaning it was necessary to rewrite some parts of the code, specifically the element and validation sections.
 The base to achieve this was Object-Oriented Programming (OOP), part studied in this sprint, so two new classes were created: one Card (form elements) and two FormValidator (form validation). After creating them, it was necessary just to use export and import techniques.
+
+Sprint 11 - Object-Oriented Programming Advanced
+In this part of the project, the following classes were created and encapsulated, each performing specific tasks:
+Section – a class responsible for rendering a list of elements on the page according to certain requirements.
+Popup – a class that handles opening and closing pop-up windows, whether by clicking the close button, clicking outside the modal window, or pressing the Escape key.
+PopupWithForm – a subclass of Popup that includes specific modifications related to form handling.
+PopupWithImage – also a subclass of Popup, containing specific methods since it is responsible for enlarging an image when the user clicks on it.
+UserInfo – a class responsible for rendering user information on the page.

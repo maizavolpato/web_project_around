@@ -8,16 +8,20 @@
     <meta name="keywords" content="" />
 
     <title>Around</title>
-    <link rel="stylesheet" href="./pages/index.css" />
+    <link rel="stylesheet" href="../src/page/index.css" />
   </head>
   <body>
     <div class="page">
       <header class="header">
-        <img src="./images/logo.png" alt="Logo Around" class="header__logo" />
+        <img
+          src="../src/images/logo.png"
+          alt="Logo Around"
+          class="header__logo"
+        />
       </header>
       <section class="profile">
         <img
-          src="./images/avatar.png"
+          src="../src/images/avatar.png"
           alt="Profile Image"
           class="profile__image"
         />
@@ -33,15 +37,19 @@
       <section class="elements"></section>
       <footer class="footer">&copy; Maiza Volpato dos Santos</footer>
     </div>
-    <section class="form-profile">
-      <div class="form-profile__container">
-        <button class="form-profile__button-close" type="button"></button>
-        <h2 class="form-profile__title">Editar perfil</h2>
-        <form class="popup__form form-profile__edit" novalidate>
-          <fieldset class="form-profile__fieldset">
+    <section class="popup" id="popup-profile">
+      <div class="popup__container">
+        <button
+          id="button-close"
+          class="popup__button-close"
+          type="button"
+        ></button>
+        <h2 class="popup__title">Editar perfil</h2>
+        <form id="form" class="popup__profile-edit" novalidate>
+          <fieldset class="popup__fieldset">
             <input
               type="text"
-              class="popup__input form-profile__input"
+              class="popup__input popup__profile-input"
               id="name"
               name="name"
               placeholder="Name"
@@ -49,11 +57,13 @@
               minlength="2"
               maxlength="40"
             />
-            <span id="name-error" class="form__input-error-message">Error</span>
+            <span id="name-error" class="popup__input-error-message"
+              >Error</span
+            >
 
             <input
               type="text"
-              class="popup__input form-profile__input"
+              class="popup__input popup__profile-input"
               id="detail"
               name="detail"
               placeholder="Detail"
@@ -61,29 +71,28 @@
               minlength="2"
               maxlength="40"
             />
-            <span id="detail-error" class="form__input-error-message"
+            <span id="detail-error" class="popup__input-error-message"
               >Error</span
             >
-            <button
-              class="popup__button form-profile__button-submit"
-              type="submit"
-            >
-              Salvar
-            </button>
+            <button class="popup__button-submit" type="submit">Salvar</button>
           </fieldset>
         </form>
       </div>
     </section>
 
-    <section class="form-elements">
-      <div class="form-elements__container">
-        <button class="form-elements__button-close" type="button"></button>
-        <h2 class="form-elements__title">Novo local</h2>
-        <form class="popup__form form-elements__edit" novalidate>
-          <fieldset class="form-elements__fieldset">
+    <section class="popup" id="popup-elements">
+      <div class="popup__container">
+        <button
+          id="button-close"
+          class="popup__button-close"
+          type="button"
+        ></button>
+        <h2 class="popup__title">Novo local</h2>
+        <form id="form" class="popup__elements-edit" novalidate>
+          <fieldset class="popup__fieldset">
             <input
               type="text"
-              class="popup__input form-elements__input"
+              class="popup__input popup__elements-input"
               id="title"
               name="title"
               placeholder="Título"
@@ -91,35 +100,30 @@
               maxlength="30"
               required
             />
-            <span id="title-error" class="form__input-error-message"
+            <span id="title-error" class="popup__input-error-message"
               >Error</span
             >
             <input
               type="url"
-              class="popup__input form-elements__input"
+              class="popup__input popup__elements-input"
               id="image"
               name="image"
               placeholder="Link de Imagem"
               required
             />
-            <span id="image-error" class="form__input-error-message"
+            <span id="image-error" class="popup__input-error-message"
               >Error</span
             >
-            <button
-              class="popup__button form-elements__button-submit"
-              type="submit"
-            >
-              Salvar
-            </button>
+            <button class="popup__button-submit" type="submit">Salvar</button>
           </fieldset>
         </form>
       </div>
     </section>
-    <div class="image-popup">
-      <div class="image-popup__container">
-        <button class="image-popup__button-close" type="button"></button>
-        <img src="" alt="" class="image-popup__image" />
-        <span class="image-popup__title"></span>
+    <div id="popup-image" class="popup">
+      <div class="popup__image-container">
+        <button class="popup__image-button-close" type="button"></button>
+        <img src="" alt="" class="popup__image" />
+        <span class="popup__image-title"></span>
       </div>
     </div>
     <template id="elements-template">
@@ -134,6 +138,6 @@
         </div>
       </div>
     </template>
-    <script src="./scripts/index.js" type="module"></script>
+    <script src="./page/index.js" type="module"></script>
   </body>
 </html>
