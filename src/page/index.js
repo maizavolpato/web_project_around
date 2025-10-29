@@ -11,7 +11,7 @@ import {
   elementForm,
   inputName,
   inputJob,
-} from "../utils/utils.js";
+} from "../utils/Utils.js";
 import { PopupWithForm } from "../componentes/PopupWithForm.js";
 import { Section } from "../componentes/Section.js";
 import { PopupWithImage } from "../componentes/PopupWithImage.js";

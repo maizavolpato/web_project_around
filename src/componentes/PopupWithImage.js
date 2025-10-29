@@ -17,16 +17,3 @@ export class PopupWithImage extends Popup {
     super.open();
   }
 }
-
-//function openImagePopup(imageUrl, title) {
-// imagePopupImage.src = imageUrl;
-//imagePopupImage.alt = title;
-// imagePopupTitle.textContent = title;
-// imagePopup.classList.add("popup-open");
-//}
-
-//function closeImagePopup() {
-//imagePopup.classList.remove("popup-open");
-//imagePopupImage.src = "";
-//imagePopupTitle.textContent = "";
-//}

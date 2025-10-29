@@ -58,7 +58,7 @@
   border: 1px solid #fff;
   width: 150px;
   height: 50px;
-  margin: 13px 0 14px 165px;
+  margin: 13px 0 14px auto;
   align-self: center;
   cursor: pointer;
 }
