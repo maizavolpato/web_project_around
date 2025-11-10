@@ -23,9 +23,14 @@ This part of the project focused on code refactoring, meaning it was necessary t
 The base to achieve this was Object-Oriented Programming (OOP), part studied in this sprint, so two new classes were created: one Card (form elements) and two FormValidator (form validation). After creating them, it was necessary just to use export and import techniques.
 
 Sprint 11 - Object-Oriented Programming Advanced
+
 In this part of the project, the following classes were created and encapsulated, each performing specific tasks:
 Section – a class responsible for rendering a list of elements on the page according to certain requirements.
 Popup – a class that handles opening and closing pop-up windows, whether by clicking the close button, clicking outside the modal window, or pressing the Escape key.
 PopupWithForm – a subclass of Popup that includes specific modifications related to form handling.
 PopupWithImage – also a subclass of Popup, containing specific methods since it is responsible for enlarging an image when the user clicks on it.
 UserInfo – a class responsible for rendering user information on the page.
+
+Sprint 12 - Java Script Asincrono e Trabalho com Api
+
+In this part of the project, the website was connected to the TripleTen server. This means that all the information a user adds is now saved on the server, and anyone can load the updated data. The user profile section was updated so that the name, description, and profile picture are all stored on the server. The card creation feature was also improved — new cards can now be added, deleted, and liked, with all these actions connected directly to the server.

@@ -19,29 +19,10 @@ export const nameProfile = document.querySelector(".profile__name");
 export const jobProfile = document.querySelector(".profile__job");
 export const inputName = document.querySelector("#name");
 export const inputJob = document.querySelector("#detail");
-export const initialElements = [
-  {
-    imageUrl: "./images/photo_1.jpg",
-    title: "Vale de Yosemite",
-  },
-  {
-    imageUrl: "./images/photo_2.jpg",
-    title: "Lago Louise",
-  },
-  {
-    imageUrl: "./images/photo_3.jpg",
-    title: "Montanhas Care",
-  },
-  {
-    imageUrl: "./images/photo_4.jpg",
-    title: "Latemar",
-  },
-  {
-    imageUrl: "./images/photo_5.jpg",
-    title: "Parque Nacional da Vanoise",
-  },
-  {
-    imageUrl: "./images/photo_6.jpg",
-    title: "Lago di Braies",
-  },
-];
+export const profileImage = document.querySelector(".profile__image");
+export const initialElements = [];
+export const editIcon = document.querySelector(".profile__image-icon");
+export const popupUpdateAvatar = document.querySelector("#popup-avatar");
+export const popupAvatarButtonClose = popupUpdateAvatar.querySelector(
+  ".popup__button-close"
+);

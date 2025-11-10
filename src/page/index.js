@@ -11,11 +11,42 @@ import {
   elementForm,
   inputName,
   inputJob,
+  editIcon,
+  popupUpdateAvatar,
+  popupAvatarButtonClose,
+  profileImage,
 } from "../utils/Utils.js";
 import { PopupWithForm } from "../componentes/PopupWithForm.js";
 import { Section } from "../componentes/Section.js";
-import { PopupWithImage } from "../componentes/PopupWithImage.js";
 import { UserInfo } from "../componentes/UserInfo.js";
+import { api } from "../componentes/Api.js";
+
+function openUpdateAvatar() {
+  popupUpdateAvatar.classList.add("popup_open");
+}
+
+function closeUpdateAvatar() {
+  popupUpdateAvatar.classList.remove("popup_open");
+}
+
+const updateAvatarPopup = new PopupWithForm(
+  "#popup-avatar",
+  (data) => {
+    api
+      .updateProfilePhoto(data.avatar)
+      .then((info) => {
+        userInformation.setUserInfo(info.name, info.about, info.avatar);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  },
+  () => editProfileFormValidator.resetValidation()
+);
+updateAvatarPopup.setEventListeners();
+
+editIcon.addEventListener("click", openUpdateAvatar);
+popupAvatarButtonClose.addEventListener("click", closeUpdateAvatar);
 
 function openProfile() {
   editProfilePopup.open();
@@ -35,6 +66,8 @@ const cardSection = new Section(
       const card = new Card({
         imageUrl: element.imageUrl,
         title: element.title,
+        _id: element._id,
+        apiInstance: api,
       });
       const cardElement = card.generateCard();
 
@@ -53,35 +86,55 @@ cardSection.renderItems();
 const editProfilePopup = new PopupWithForm(
   "#popup-profile",
   (formValues) => {
-    userInformation.setUserInfo(inputName.value, inputJob.value);
+    editProfilePopup.renderLoading(true);
+    api
+      .updateUserInfo({
+        name: formValues.name,
+        about: formValues.detail,
+      })
+
+      .then((updatedUserData) => {
+        userInformation.setUserInfo(
+          updatedUserData.name,
+          updatedUserData.about
+        );
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => {
+        editProfilePopup.renderLoading(false);
+      });
   },
   () => editProfileFormValidator.resetValidation()
 );
+
 const editElementsPopup = new PopupWithForm(
   "#popup-elements",
   (formValues) => {
-    const newElements = {
-      imageUrl: formValues["image"],
-      title: formValues["title"],
-    };
+    api
+      .updateCardInfo({
+        name: formValues.title,
+        link: formValues.image,
+      })
 
-    const card = new Card({
-      imageUrl: newElements.imageUrl,
-      title: newElements.title,
-    });
+      .then((updatedCardData) => {
+        const card = new Card({
+          imageUrl: updatedCardData.link,
+          title: updatedCardData.name,
+          _id: updatedCardData._id,
+          apiInstance: api,
+        });
+        const cardElement = card.generateCard();
 
-    const cardElement = card.generateCard();
-
-    const image = cardElement.querySelector(".element__image");
-    image.addEventListener("click", () => {
-      popupWithImage.open(newElements.imageUrl, newElements.title);
-    });
-
-    cardSection.addItem(cardElement);
+        cardSection.addItem(cardElement);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   },
-  () => editElementFormValidator.resetValidation()
+  () => editProfileFormValidator.resetValidation()
 );
-
 editProfilePopup.setEventListeners();
 editElementsPopup.setEventListeners();
 
@@ -94,10 +147,29 @@ editElementFormValidator.enableValidation();
 const userInformation = new UserInfo({
   userName: nameProfile,
   userJob: jobProfile,
+  avatar: profileImage,
 });
-
-const popupWithImage = new PopupWithImage("#popup-image");
-popupWithImage.setEventListeners();
 
 editProfileButton.addEventListener("click", openProfile);
 editElementsButton.addEventListener("click", openElements);
+
+api
+  .getInicialData()
+  .then(([userInfo, inicialCards]) => {
+    userInformation.setUserInfo(userInfo.name, userInfo.about, userInfo.avatar);
+
+    inicialCards.forEach((cardData) => {
+      const card = new Card({
+        imageUrl: cardData.link,
+        title: cardData.name,
+        _id: cardData._id,
+        apiInstance: api,
+      });
+      const cardElement = card.generateCard();
+
+      cardSection.addItem(cardElement);
+    });
+  })
+  .catch((err) => {
+    console.log(err);
+  });

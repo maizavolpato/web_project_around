@@ -4,10 +4,35 @@
   max-width: 880px;
 }
 
+.profile__image-container {
+  position: relative;
+  cursor: pointer;
+}
+
 .profile__image {
   width: 120px;
   height: 120px;
+  border-radius: 50%;
 }
+
+.profile__image-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  /*pointer-events: none;*/
+}
+
+.profile__image-container:hover .profile__image-icon {
+  opacity: 1;
+}
+
+.profile__image-container:hover .profile__image {
+  opacity: 0.6;
+}
+
 .profile__info {
   max-width: 415px;
   margin-left: 30px;

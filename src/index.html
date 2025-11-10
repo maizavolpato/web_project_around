@@ -20,17 +20,23 @@
         />
       </header>
       <section class="profile">
+        <div class="profile__image-container">
         <img
           src="../src/images/avatar.png"
           alt="Profile Image"
           class="profile__image"
         />
+          <img 
+          src="../src/images/Vector 2.png" 
+          alt="Ícone"
+          class="profile__image-icon">
+      </div>
         <div class="profile__info">
           <div class="profile__name-button">
-            <h2 class="profile__name">Jacques Cousteau</h2>
+            <h2 class="profile__name"></h2>
             <button class="profile__edit-button"></button>
           </div>
-          <h1 class="profile__job">Explorador</h1>
+          <h1 class="profile__job"></h1>
         </div>
         <button class="profile__add-image-button"></button>
       </section>
@@ -126,6 +132,39 @@
         <span class="popup__image-title"></span>
       </div>
     </div>
+    <section class="popup" id="popup-confirmation">
+      <div class="popup__container-confirmation">
+        <button
+          id="button-close"
+          class="popup__button-close"
+          type="button"
+        ></button>
+        <h2 class="popup__title-confirmation">Tem certeza?</h2>
+        <button class="popup__button-confirm">Sim</button>
+      </section>
+    <section  class="popup" id="popup-avatar">
+        <div class="popup__container-avatar">
+          <button
+            id="button-close"
+            class="popup__button-close"
+            type="button"
+          ></button>
+          <h2 class="popup__title-avatar">Alterar a foto do perfil</h2>
+          <form id="form" class="popup__update-avatar" novalidate>
+            <fieldset class="popup__fieldset">
+              <input
+              type="url"
+              class="popup__input popup__avatar-input"
+              id="avatar"
+              name="avatar"
+              placeholder="Link de Imagem"
+              required
+              />
+              <button class="popup__button-submit" type="submit">Salvar</button>
+            </fieldset>
+          </form>
+        </div>
+      </section>
     <template id="elements-template">
       <div class="element">
         <button class="element__remove-button"></button>
