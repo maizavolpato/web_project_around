@@ -2,13 +2,24 @@ import { PopupWithConfirmation } from "./PopupWithConfirmation.js";
 import { PopupWithImage } from "./PopupWithImage.js";
 
 export class Card {
-  constructor({ imageUrl, title, isLiked, _id, owner, apiInstance }) {
+  constructor({
+    imageUrl,
+    title,
+    isLiked,
+    _id,
+    owner,
+    apiInstance,
+    handleClickImage,
+    handleDeleteCard,
+  }) {
     this.imageUrl = imageUrl;
     this.title = title;
     this.isLiked = isLiked;
     this.id = _id;
     this.owner = owner;
     this.api = apiInstance;
+    this.handleClickImage = handleClickImage;
+    this.handleDeleteCard = handleDeleteCard;
   }
   _getTemplate() {
     const template = document.querySelector("#elements-template").content;
@@ -18,21 +29,11 @@ export class Card {
 
   setEventListeners() {
     this.elementImage.addEventListener("click", () => {
-      const popupWithImage = new PopupWithImage("#popup-image");
-      popupWithImage.setEventListeners();
-      popupWithImage.open(this.imageUrl, this.title);
+      this.handleClickImage(this);
     });
 
-    this.removeElement.addEventListener("click", (evt) => {
-      const confirmationPopup = new PopupWithConfirmation(
-        "#popup-confirmation",
-        this.id,
-        this.api,
-        this.cardElement,
-        this.isLiked
-      );
-      confirmationPopup.setEventListeners();
-      confirmationPopup.open();
+    this.removeElement.addEventListener("click", () => {
+      this.handleDeleteCard(this);
     });
 
     this.likeButton.addEventListener("click", () => {

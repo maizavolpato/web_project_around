@@ -6,8 +6,6 @@ export class Section {
   }
 
   renderItems() {
-    console.log("render items");
-    console.log(this._items);
     this._items.forEach((item) => {
       console.log(item);
       this.renderer(item);
@@ -15,7 +13,6 @@ export class Section {
   }
 
   addItem(element) {
-    console.log(this._items);
-    this.container.append(element);
+    this.container.prepend(element);
   }
 }

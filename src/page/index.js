@@ -20,6 +20,8 @@ import { PopupWithForm } from "../componentes/PopupWithForm.js";
 import { Section } from "../componentes/Section.js";
 import { UserInfo } from "../componentes/UserInfo.js";
 import { api } from "../componentes/Api.js";
+import { PopupWithConfirmation } from "../componentes/PopupWithConfirmation.js";
+import { PopupWithImage } from "../componentes/PopupWithImage.js";
 
 function openUpdateAvatar() {
   popupUpdateAvatar.classList.add("popup_open");
@@ -68,13 +70,24 @@ const cardSection = new Section(
         title: element.title,
         _id: element._id,
         apiInstance: api,
+        handleClickImage: (cardClick) => {
+          const popupWithImage = new PopupWithImage("#popup-image");
+          popupWithImage.setEventListeners();
+          popupWithImage.open(cardClick.imageUrl, cardClick.title);
+        },
+        handleDeleteCard: (cardDeleted) => {
+          const confirmationPopup = new PopupWithConfirmation(
+            "#popup-confirmation",
+            cardDeleted.id,
+            cardDeleted.api,
+            cardDeleted.cardElement,
+            cardDeleted.isLiked
+          );
+          confirmationPopup.setEventListeners();
+          confirmationPopup.open();
+        },
       });
       const cardElement = card.generateCard();
-
-      const image = cardElement.querySelector(".element__image");
-      image.addEventListener("click", () => {
-        popupWithImage.open(element.imageUrl, element.title);
-      });
       cardSection.addItem(cardElement);
     },
   },
@@ -124,6 +137,22 @@ const editElementsPopup = new PopupWithForm(
           title: updatedCardData.name,
           _id: updatedCardData._id,
           apiInstance: api,
+          handleClickImage: (cardClick) => {
+            const popupWithImage = new PopupWithImage("#popup-image");
+            popupWithImage.setEventListeners();
+            popupWithImage.open(cardClick.imageUrl, cardClick.title);
+          },
+          handleDeleteCard: (cardDeleted) => {
+            const confirmationPopup = new PopupWithConfirmation(
+              "#popup-confirmation",
+              cardDeleted.id,
+              cardDeleted.api,
+              cardDeleted.cardElement,
+              cardDeleted.isLiked
+            );
+            confirmationPopup.setEventListeners();
+            confirmationPopup.open();
+          },
         });
         const cardElement = card.generateCard();
 
@@ -158,28 +187,33 @@ api
   .then(([userInfo, inicialCards]) => {
     userInformation.setUserInfo(userInfo.name, userInfo.about, userInfo.avatar);
 
-    inicialCards
-      //.map((card) => {
-      //  console.log(card);
-      // })
-      .sort((a, b) => {
-        console.log(a);
-        //return a.name - b.name;
-        if (a.name > b.name) return 1;
-        if (a.name < b.name) return -1;
-        return 0;
-      })
-      .forEach((cardData) => {
-        const card = new Card({
-          imageUrl: cardData.link,
-          title: cardData.name,
-          _id: cardData._id,
-          apiInstance: api,
-        });
-        const cardElement = card.generateCard();
-
-        cardSection.addItem(cardElement);
+    inicialCards.reverse().forEach((cardData) => {
+      const card = new Card({
+        imageUrl: cardData.link,
+        title: cardData.name,
+        _id: cardData._id,
+        apiInstance: api,
+        handleClickImage: (cardClick) => {
+          const popupWithImage = new PopupWithImage("#popup-image");
+          popupWithImage.setEventListeners();
+          popupWithImage.open(cardClick.imageUrl, cardClick.title);
+        },
+        handleDeleteCard: (cardDeleted) => {
+          const confirmationPopup = new PopupWithConfirmation(
+            "#popup-confirmation",
+            cardDeleted.id,
+            cardDeleted.api,
+            cardDeleted.cardElement,
+            cardDeleted.isLiked
+          );
+          confirmationPopup.setEventListeners();
+          confirmationPopup.open();
+        },
       });
+      const cardElement = card.generateCard();
+
+      cardSection.addItem(cardElement);
+    });
   })
   .catch((err) => {
     console.log(err);
