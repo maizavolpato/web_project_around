@@ -16,10 +16,6 @@ export class Card {
     return cardElement;
   }
 
-  //buttonLikeElement(evt) {
-  //this.likeButton.classList.toggle("element__card-button-like-active");
-  //}
-
   setEventListeners() {
     this.elementImage.addEventListener("click", () => {
       const popupWithImage = new PopupWithImage("#popup-image");
@@ -62,7 +58,7 @@ export class Card {
         .catch((err) => {
           console.log(err);
         });
-    }); //this.buttonLikeElement());
+    });
   }
 
   generateCard() {

@@ -154,21 +154,32 @@ editProfileButton.addEventListener("click", openProfile);
 editElementsButton.addEventListener("click", openElements);
 
 api
-  .getInicialData()
+  .getInitialData()
   .then(([userInfo, inicialCards]) => {
     userInformation.setUserInfo(userInfo.name, userInfo.about, userInfo.avatar);
 
-    inicialCards.forEach((cardData) => {
-      const card = new Card({
-        imageUrl: cardData.link,
-        title: cardData.name,
-        _id: cardData._id,
-        apiInstance: api,
-      });
-      const cardElement = card.generateCard();
+    inicialCards
+      //.map((card) => {
+      //  console.log(card);
+      // })
+      .sort((a, b) => {
+        console.log(a);
+        //return a.name - b.name;
+        if (a.name > b.name) return 1;
+        if (a.name < b.name) return -1;
+        return 0;
+      })
+      .forEach((cardData) => {
+        const card = new Card({
+          imageUrl: cardData.link,
+          title: cardData.name,
+          _id: cardData._id,
+          apiInstance: api,
+        });
+        const cardElement = card.generateCard();
 
-      cardSection.addItem(cardElement);
-    });
+        cardSection.addItem(cardElement);
+      });
   })
   .catch((err) => {
     console.log(err);

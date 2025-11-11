@@ -11,22 +11,26 @@ class Api {
     return Promise.reject(`Error: ${res.status}`);
   }
 
-  getInicialData() {
+  _makeRequest(url, options = {}) {
+    return fetch(url, options).then((res) => this._handleServerResponse(res));
+  }
+
+  getInitialData() {
     return Promise.all([this.getUserInfo(), this.getInitialCards()]);
   }
 
   //GET https://around-api.pt-br.tripleten-services.com/v1/cards/
   getInitialCards() {
-    return fetch(`${this._baseUrl}/cards`, {
+    return this._makeRequest(`${this._baseUrl}/cards`, {
       headers: this._headers,
-    }).then((res) => this._handleServerResponse(res));
+    });
   }
 
   //GET https://around-api.pt-br.tripleten-services.com/v1/users/me
   getUserInfo() {
-    return fetch(`${this._baseUrl}/users/me`, {
+    return this._makeRequest(`${this._baseUrl}/users/me`, {
       headers: this._headers,
-    }).then((res) => this._handleServerResponse(res));
+    });
   }
 
   //PATCH https://around-api.pt-br.tripleten-services.com/v1/users/me
