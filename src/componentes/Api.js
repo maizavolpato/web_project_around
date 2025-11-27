@@ -34,13 +34,14 @@ class Api {
   }
 
   //PATCH https://around-api.pt-br.tripleten-services.com/v1/users/me
-  updateUserInfo({ name, about }) {
+  updateUserInfo({ name, about, avatar }) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({
         name,
         about,
+        avatar,
       }),
     }).then((res) => this._handleServerResponse(res));
   }

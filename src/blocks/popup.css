@@ -13,7 +13,7 @@
 }
 
 .popup__container {
-  max-width: 430px;
+  max-width: 420px;
   height: 330px;
   background-color: #ffffff;
   box-shadow: 0px 0px 25px 0px #00000026;
@@ -207,14 +207,16 @@
 
 .popup__image-container {
   position: relative;
-  max-width: 75vw;
-  max-height: 75vh;
+  max-width: 40vw;
+  /* max-height: 75vh; */
   display: flex;
 }
 
 .popup__image {
-  max-width: 100%;
-  max-height: 100%;
+  object-fit: contain;
+  max-width: 420px;
+  min-width: 100%;
+  margin: auto;
 }
 
 .popup__image-button-close {

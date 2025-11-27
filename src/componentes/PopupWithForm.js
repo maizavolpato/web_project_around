@@ -19,6 +19,18 @@ export class PopupWithForm extends Popup {
     return formValues;
   }
 
+  renderLoading(isLoading) {
+    const buttonSubmit = this._popupForm.querySelector(".popup__button-submit");
+
+    if (isLoading === true) {
+      buttonSubmit.textContent = "Salvando...";
+      buttonSubmit.disabled = true;
+    } else {
+      buttonSubmit.textContent = "Salvar";
+      buttonSubmit.disabled = false;
+    }
+  }
+
   setEventListeners() {
     this._popupForm.addEventListener("submit", (evt) => {
       evt.preventDefault();
