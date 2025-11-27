@@ -100,22 +100,18 @@ const editProfilePopup = new PopupWithForm(
   "#popup-profile",
   (formValues) => {
     editProfilePopup.renderLoading(true);
-
     api
       .updateUserInfo({
         name: formValues.name,
         about: formValues.detail,
-        avatar: formValues.avatar,
       })
 
       .then((updatedUserData) => {
         userInformation.setUserInfo(
           updatedUserData.name,
-          updatedUserData.about,
-          updatedUserData.avatar
+          updatedUserData.about
         );
       })
-
       .catch((err) => {
         console.log(err);
       })
@@ -188,10 +184,9 @@ editElementsButton.addEventListener("click", openElements);
 
 api
   .getInitialData()
-
   .then(([userInfo, inicialCards]) => {
     userInformation.setUserInfo(userInfo.name, userInfo.about, userInfo.avatar);
-    console.log(userInfo);
+
     inicialCards.reverse().forEach((cardData) => {
       const card = new Card({
         imageUrl: cardData.link,

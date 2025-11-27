@@ -1,17 +1,17 @@
-/* /* #popup-image-container {
+#popup-image-container {
   position: relative;
-  max-height: 90%;
+  max-width: 75vw;
+  max-height: 75vh;
   display: flex;
-} */
+}
 
-/* .popup__image { */
-/* object-fit: contain;
-  max-width: 28%;
-  margin: auto; */
-/* max-height: 100%; */
-/* } */
+.popup__image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
 
-/* .popup__image-button-close {
+.popup__image-button-close {
   width: 40px;
   height: 40px;
   background: transparent url("../images/close_button.png") center no-repeat;
@@ -22,9 +22,9 @@
   padding: 0;
   margin: 0;
   cursor: pointer;
-} */
+}
 
-/* .popup__image-button-close:hover {
+.popup__image-button-close:hover {
   opacity: 0.8;
 }
 
@@ -44,4 +44,4 @@
     width: 30px;
     height: 30px;
   }
-} */
+}
